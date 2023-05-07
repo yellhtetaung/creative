@@ -44,7 +44,7 @@ const LoginPage = () => {
             <Feather name="mail" size={20} color="#888" />
             <TextInput
               style={styles.inputBox}
-              keyboardType={"email-address"}
+              keyboardType="email-address"
               placeholder="Email"
             />
           </View>

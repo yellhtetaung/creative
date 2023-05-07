@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   ScrollView,
   Dimensions,
+  Image,
 } from "react-native";
 
 const { width, height } = Dimensions.get("screen");
@@ -48,9 +49,15 @@ const OrderRequest = () => {
         return (
           <TouchableOpacity style={styles.card} key={index} activeOpacity={0.8}>
             <View style={styles.cardHeader}>
-              <View>
-                <Text style={styles.cardTitle}>{list.title}</Text>
-                <Text style={styles.cardSubTitle}>{list.subTitle}</Text>
+              <View style={styles.cardInfo}>
+                <Image
+                  source={require("../../images/image.png")}
+                  style={styles.logo}
+                />
+                <View>
+                  <Text style={styles.cardTitle}>{list.title}</Text>
+                  <Text style={styles.cardSubTitle}>{list.subTitle}</Text>
+                </View>
               </View>
               <View>
                 <TouchableOpacity style={styles.payment}>
@@ -58,7 +65,7 @@ const OrderRequest = () => {
                     style={{
                       fontFamily: "poppins-regular",
                       color: "#fff",
-                      fontSize: 12,
+                      fontSize: 10,
                     }}
                   >
                     {list.payment}
@@ -122,12 +129,26 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
 
+  cardInfo: {
+    display: "flex",
+    flexDirection: "row",
+  },
+
+  logo: {
+    width: 50,
+    height: 50,
+    borderRadius: 10,
+
+    marginRight: 5,
+  },
+
   cardTitle: {
     fontFamily: "poppins-bold",
   },
 
   cardSubTitle: {
     fontFamily: "poppins-regular",
+    fontSize: 12,
     color: "#999",
   },
 
