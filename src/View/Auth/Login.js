@@ -104,7 +104,7 @@ const LoginPage = () => {
 
         <TouchableOpacity
           style={styles.signButton}
-          onPress={() => navigation.navigate("orderRequest")}
+          onPress={() => navigation.replace("orderRequest")}
         >
           <Text style={styles.signText}>Sign in</Text>
         </TouchableOpacity>

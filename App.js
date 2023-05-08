@@ -1,5 +1,6 @@
 import React, { useCallback } from "react";
 import { Pressable } from "react-native";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 // Font
 import { useFonts } from "expo-font";
@@ -14,7 +15,7 @@ import { useNavigation } from "@react-navigation/native";
 import HomePage from "./src/View/Home";
 import LoginPage from "./src/View/Auth/Login";
 import OrderRequest from "./src/View/Order/OrderRequest";
-import Ionicons from "react-native-vector-icons/Ionicons";
+import OrderDetails from "./src/View/Order/OrderDetails";
 
 const headerLeft = () => {
   const navigation = useNavigation();
@@ -52,21 +53,21 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName={"login"}
+        initialRouteName="login"
         screenOptions={{
           headerLeft,
           headerLeftContainerStyle: { marginLeft: 20 },
         }}
       >
         <Stack.Screen
-          name={"home"}
+          name="home"
           component={HomePage}
           options={{ headerShown: false }}
         />
 
         {/* Login and Signup*/}
         <Stack.Screen
-          name={"login"}
+          name="login"
           component={LoginPage}
           options={{
             headerShown: false,
@@ -75,11 +76,22 @@ const App = () => {
 
         {/*Order Request*/}
         <Stack.Screen
-          name={"orderRequest"}
+          name="orderRequest"
           component={OrderRequest}
           options={{
             headerTitleAlign: "center",
             headerTitle: "Order Request",
+            headerTitleStyle: { fontFamily: "poppins-bold" },
+          }}
+        />
+
+        {/*Order Details*/}
+        <Stack.Screen
+          name="orderDetails"
+          component={OrderDetails}
+          options={{
+            headerTitleAlign: "center",
+            headerTitle: "Order Details",
             headerTitleStyle: { fontFamily: "poppins-bold" },
           }}
         />

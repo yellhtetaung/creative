@@ -1,50 +1,62 @@
-import React, { useState } from "react";
+import React from "react";
 import { View, Text, TouchableOpacity, ScrollView, Image } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { styles } from "../../style/OrderRequest";
 
+const orderLists = [
+  {
+    title: "Mc donaid's",
+    subTitle: "American culsme, fast food",
+    image: require("../../images/image.png"),
+    items: 2,
+    min: 2,
+    payment: "COD",
+  },
+  {
+    title: "Mc donaid's",
+    subTitle: "American culsme, fast food",
+    image: require("../../images/image.png"),
+    items: 2,
+    min: 2,
+    payment: "Digitally Paid",
+  },
+  {
+    title: "Mc donaid's",
+    subTitle: "American culsme, fast food",
+    image: require("../../images/image.png"),
+    items: 2,
+    min: 2,
+    payment: "COD",
+  },
+  {
+    title: "Mc donaid's",
+    subTitle: "American culsme, fast food",
+    image: require("../../images/image.png"),
+    items: 2,
+    min: 2,
+    payment: "Digitally Paid",
+  },
+];
+
 const OrderRequest = () => {
-  const [orderLists, setOrderLists] = useState([
-    {
-      title: "Mc donaid's",
-      subTitle: "American culsme, fast food",
-      items: 2,
-      min: 2,
-      payment: "COD",
-    },
-    {
-      title: "Mc donaid's",
-      subTitle: "American culsme, fast food",
-      items: 2,
-      min: 2,
-      payment: "Digitally Paid",
-    },
-    {
-      title: "Mc donaid's",
-      subTitle: "American culsme, fast food",
-      items: 2,
-      min: 2,
-      payment: "COD",
-    },
-    {
-      title: "Mc donaid's",
-      subTitle: "American culsme, fast food",
-      items: 2,
-      min: 2,
-      payment: "Digitally Paid",
-    },
-  ]);
+  const navigation = useNavigation();
 
   return (
     <ScrollView style={styles.container}>
+      <Text style={styles.logo}>Creative</Text>
       {orderLists.map((list, index) => {
         return (
-          <TouchableOpacity style={styles.card} key={index} activeOpacity={0.8}>
+          <TouchableOpacity
+            style={styles.card}
+            key={index}
+            activeOpacity={0.8}
+            onPress={() =>
+              navigation.navigate("orderDetails", { details: list })
+            }
+          >
             <View style={styles.cardHeader}>
               <View style={styles.cardInfo}>
-                <Image
-                  source={require("../../images/image.png")}
-                  style={styles.logo}
-                />
+                <Image source={list.image} style={styles.itemLogo} />
                 <View>
                   <Text style={styles.cardTitle}>{list.title}</Text>
                   <Text style={styles.cardSubTitle}>{list.subTitle}</Text>

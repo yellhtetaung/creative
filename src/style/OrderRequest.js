@@ -8,6 +8,14 @@ export const styles = StyleSheet.create({
     height: height,
   },
 
+  logo: {
+    fontFamily: "poppins-bold",
+    fontSize: 35,
+    color: "#059669",
+
+    marginLeft: 20,
+  },
+
   card: {
     width: width - 40,
     backgroundColor: "#fff",
@@ -34,7 +42,7 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
   },
 
-  logo: {
+  itemLogo: {
     width: 50,
     height: 50,
     borderRadius: 10,
